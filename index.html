@@ -1,104 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snake Game</title>
+    <style>
+        body{
+            margin: 0 auto;
+            padding: 0 auto;
+            width: 1100px;
+        }
+        .game {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #canvas {
+            margin-bottom: 10px;
+        }
+
+        .restart {
+            border: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-	<p class="zzz">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, totam, tempora molestiae reiciendis, quisquam quos maiores officiis quas, repudiandae nobis ex velit. Quia deleniti reprehenderit voluptates veniam, nulla cupiditate blanditiis.
-	</p>
-	<h3></h3>
-	<header>
-	<h1>adad</h1>
-	<h2>adgatag</h2>
-	<h4>adgesyh</h4>
-	</header>
-	<h2 class="test"></h2>
-	<ul>
-		<li>dfadf</li>
-		<li class="www">dth</li>
-		<li>eyety</li>
-		<li class="www">adfaf</li>
-	</ul>
-	<div class="group-box">
-	  <input type="password" id="password-show" class="modal-input" placeholder="Пароль">
-	  <button type="button" class="show-password">
-	    Показать пароль
-	  </button>
-	</div>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, repudiandae dolorum nam vero ipsam voluptas provident sequi animi ullam perferendis perspiciatis voluptate temporibus nihil, atque aspernatur sed nobis sint laborum!
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, repudiandae dolorum nam vero ipsam voluptas provident sequi animi ullam perferendis perspiciatis voluptate temporibus nihil, atque aspernatur sed nobis sint laborum!
-	</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, repudiandae dolorum nam vero ipsam voluptas provident sequi animi ullam perferendis perspiciatis voluptate temporibus nihil, atque aspernatur sed nobis sint laborum!</p>
-	<h2>aFSAAFAF <i>asdafaf</i></h2>
-	<ul>
-		<li></li>
-		<li></li>
-		<li>пункт</li>
-		<li>фввффпункт</li>
-		<li></li>
-		<li>пункт 1212</li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-	<button id="goodbye">убрать</button>
-	<div id="fidebuy" style="background-color: green; width: 200px; height: 200px; border-radius: 20px; text-align: center; color: white; padding-top: 10px;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sed porro, repellat recusandae a quam ea natus totam ipsam tenetur hic eaque quia dignissimos sunt atque consequuntur architecto, laudantium, ipsa.</div>
-	 <input type="datetime" атрибуты>
-<script type="text/javascript">
-	jQuery(document).ready(function() {
-		/*$('h3').html('Hello world!!!');
-		$('h3').css('color', 'green');
-		$('h3').css({color: 'green', fontWeight: 'bold'});
-		$('.zzz').css('color', 'red');
-		$(':headers').css('color', 'red');*/
-		/*$('li').each(function (index, elem){
-			$(elem).html(index);
-		});*/
-		//$('h2').html('Hey!!!');
-		/*$('h3').css('color', 'red');
-		$( "h2" ).click(function() {
-			alert( "Handler for .click() called." );
-			$('h2').css({'color': 'blue', 'font-family': 'Caveat, cursive'});
-		});*/
-		let pass = $('#password-show');
-			$('button.show-password').click(function() {
-			  //pass.attr('type', pass.attr('type') === 'password' ? 'text' : 'password');
-			  if(pass.attr('type') === 'password' && pass.val().length > 0){
-			  	pass.attr('type', 'text');
-			  	$('button.show-password').text('Скрыть пароль');
-			  }
-			  else{
-			  	pass.attr('type', 'password');
-			  	$('button.show-password').text('Показать пароль');
-			  }
-		});
-		/*$('h2.test').css('color', 'red');
-		$('p + p').css('color', 'red');
-		$('li + li.www').css('color', 'red');
-		$('h2 > i').css('color', 'red');
-		$('h2:not(.test)').css('color', 'red');
-		$('p:first').css('color', 'red');
-		$('li:contains("пункт")').css('color', 'red');*/
-		$('h2:has(i)').css('color', 'red');
-		$('li:eq(2)').css('color', 'red');
-		$('#goodbye').click(function() {
-				$('#fidebuy').effect('fold', 1000);
-				return false;
-			}
-		);
-		$("#fidebuy").draggable();
-	});
-</script>
-<!--<style>
-	h2{
-		font-family: Arial;
-	}
-</style>-->
+    <div class="game">
+        <canvas id="canvas" width="600" height="400"></canvas>
+        <button class="restart">Restart</button>
+    </div>
+    <script src="game.js"></script>
 </body>
 </html>
